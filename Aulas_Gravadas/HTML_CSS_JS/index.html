@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso de HTML</title>
+</head>
+<body>
+    <!--Cabeçalho -->
+    <h1>Cabeçalho nivel 1</h1>
+    <h2>Cabeçalho nivel 2</h2>
+    <h3>Cabeçalho nivel 3</h3>
+    <h4>Cabeçalho nivel 4</h4>
+    <h5>Cabeçalho nivel 5</h5>
+    <h6>Cabeçalho nivel 6</h6>
+
+    <!-- Paragrafo-->
+
+    <p>Lorem ipsum dolor sit <strong>palavra em negrito</strong> consectetur adipisicing elit. Eum accusantium minus magnam, non provident, culpa tempore nam ducimus doloribus sint officia autem nobis praesentium distinctio? Et vel nobis ad ullam!</p>
+    <p>Lorem ipsum dolor sit amet <em>Itálico</em> consectetur adipisicing elit. Nostrum odio labore et rem recusandae incidunt cumque sunt quaerat commodi totam? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Temporibus, beatae omnis accusantium sapiente vero maxime eveniet inventore! Nam, iure. Quasi laboriosam hic commodi, obcaecati esse aut ipsum in repellat asperiores.(esse paragrafo por ser display:block vai ser feito a quebra de linha)</p>
+
+    <!--Links -->
+
+    <a href="https://google.com" target="_blank">Google</a> <!--Vai abrir o site do google em uma nova aba-->
+
+    <!-- Tables -->
+    <table>
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Email</th>
+                <th>Idade</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Miguel</td>
+                <td>migueldograu05@gmail.com</td>
+                <td>26</td>
+            </tr>
+            <tr>
+                <td>Sara</td>
+                <td>sara@gmail.com</td>
+                <td>25</td>
+            </tr>
+            <tr>
+                <td>Eduardo</td>
+                <td>eduardo@gmail.com</td>
+                <td>23</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <br/> <!-- Pula linha -->
+
+    <hr>  <!-- Criar uma linha -->
+
+    <br/>
+
+    <!-- Formulários -->
+    <form action="form.php" method="POST"> <!--action = é para onde queremos mandar esse formulário.-->   <!-- method="POST" ele está fazendo um request(requisição - pedido - Envio de Dados) para servidor.-->
+        <div>
+            <label>Primeiro Nome:</label>
+            <input type="text"/>
+        </div>
+        
+        <div>
+            <label>Segundo Nome:</label>
+            <input type="text" />
+        </div>     
+
+        <div>
+            <label>Email:</label>
+            <input type="email" />
+        </div>     
+
+        <div>
+            <label>Gênero:</label>
+            <select>
+                <option value="masculino">Masculino</option>
+                <option value="feminino">Feminino</option>
+            </select>
+        </div>    
+        
+        <div>
+            <label>Data de nascimento:</label>
+            <input type="date">
+        </div> 
+
+        <div>
+            <label>Senha:</label>
+            <input type="password" placeholder="Senha de 6 dígitos">
+        </div> 
+
+        <div>
+            <label>Mensagem:</label>
+            <textarea name="mensagem"></textarea>
+        </div> 
+
+        <input type="submit"/>
+    </form>
+
+    <!-- Botões -->
+    <button>Click me</button>
+
+    <br/>
+    <!--Imagens-->
+    <img src="./imagens/paisagem.jpg" alt="Imagem de paisagem" width="700" height="500"/>
+
+    <!-- Blockquote     -   indica que o texto incluído é uma longa citação.  -->
+    <blockquote cite="dicasparadevs.com.br">
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla sequi veniam voluptatibus, est delectus qua
+        si architecto. Culpa doloribus laboriosam cum. 
+    </blockquote>
+
+    <!-- <abbr>  - quando você passar o mouse por cima do WWW vai mostrar a mensagem do title-->
+    <p >eu te amo <abbr title="World Wide Web">WWW</abbr></p>
+
+    <p>Tutorial feito por <cite>dicasparadevs</cite> </p>
+</body>
+</html>
