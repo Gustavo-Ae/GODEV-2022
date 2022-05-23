@@ -111,3 +111,20 @@ body{
     margin: 20px;
 }
 
+/* Pseudoclasses*/
+
+.categories ul{
+    list-style: none;
+}
+
+.categories ul li:first-child{
+    color: red;
+}
+
+.categories ul li:last-child{
+    color: green;
+}
+
+.categories ul li:nth-child(3){ /*Estiliza o elemento na posição 3*/
+    color: blue;
+}
