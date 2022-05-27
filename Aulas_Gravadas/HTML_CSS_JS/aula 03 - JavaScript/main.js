@@ -1,27 +1,55 @@
-// - Map Filter e Reduce 
+// Objeto 
 
-const numbers = [1,2,3,4,5]
+const person = {
+    firstName: "Gustavo",
+    lastName: "Araújo",
+    age: 21,
+    hobbies: ["Assistir série na netflix", "Caminhada","Ler"],
 
-const numbersMultipliedByTwo = numbers.map(function(number){ //essa função é executada em cada número da lista numbers, e baseado no return , a função map() --> retorna um novo array após a manipulação, ou seja, não sobrescreve o array original
-    return number * 2
-})
+    dog:{             //basicamnete é um objeto dog que está dentro do objeto pessoa.
+        name:"Simba",
+        age:4
+    }
+};
 
-console.log(numbersMultipliedByTwo)
+// const firstName = person.firstName
+// const lastName = person.lastName
+// const age = person.age
+// const hobbies = person.hobbies
 
-//Filter - Irá filtrar uma lista e criar uma lista nova 
+// Vai fazer a mesma coisa que o bloco de cima :  
+const {firstName : primeiroNome, lastName, age, hobbies, dog:{name:dogName}} = person
 
-const ages = [8,13,27,30,22,40]
+console.log(primeiroNome)
+console.log(lastName)
+console.log(age)
+console.log(hobbies)
 
-// const evenAgens = ages.filter(function(age){
-//     return age % 2 == 0 // é par
-// })
+console.log(person.dog.name)
+console.log(dogName)
 
-// console.log(evenAgens)
+//Lista com vários objetos
 
-//Reduce - Reduzir os valores de uma lista
+const todos = [
+    {
+        id:1,
+        description:"Estudar programação",
+        isCompleted:false
+    },
+    {
+        id:2,
+        description:"Ler",
+        isCompleted: true,
 
-const sumOfAges = ages.reduce(function(age, accumulator){
-    return accumulator + age
-},0) // esse 0 é o valor inicial da soma  
+    },
+    {
+        id:3,
+        description:"Treinar",
+        isCompleted: true,
+        
+    }
+]
 
-console.log(sumOfAges)
+const descriptionOfLastTodo = todos[2].description
+
+console.log(descriptionOfLastTodo)
