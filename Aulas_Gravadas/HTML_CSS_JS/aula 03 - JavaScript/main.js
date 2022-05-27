@@ -1,25 +1,27 @@
-//Listas 
+// - Map Filter e Reduce 
 
-const names = ["Felipe","João","Julia",10,false]
+const numbers = [1,2,3,4,5]
 
-const joao = names[1]
+const numbersMultipliedByTwo = numbers.map(function(number){ //essa função é executada em cada número da lista numbers, e baseado no return , a função map() --> retorna um novo array após a manipulação, ou seja, não sobrescreve o array original
+    return number * 2
+})
 
-names.push("Pedro") //adiciona elemento no final do array
+console.log(numbersMultipliedByTwo)
 
-names.unshift("Fernanda") //adiciona elemento no inicio do array
+//Filter - Irá filtrar uma lista e criar uma lista nova 
 
-names.pop() //remove o ultimo item do array
-names.pop()
-names.pop()
+const ages = [8,13,27,30,22,40]
 
-names[3] = "Gustavo"
+// const evenAgens = ages.filter(function(age){
+//     return age % 2 == 0 // é par
+// })
 
-const indexOfFelipe = names.indexOf("Felipe")  //Vai mostrar a posição do elemento.
+// console.log(evenAgens)
 
-const sortedNames = names.sort()  //Ele ordenou a lista em ordem alfabética
+//Reduce - Reduzir os valores de uma lista
 
-const namesIsArray = Array.isArray(names)
+const sumOfAges = ages.reduce(function(age, accumulator){
+    return accumulator + age
+},0) // esse 0 é o valor inicial da soma  
 
-console.log("Quantidade de Nomes: "+names.length)
-console.log("Ordem Alfabética: "+sortedNames)
-console.log(namesIsArray)
+console.log(sumOfAges)
