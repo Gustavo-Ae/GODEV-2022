@@ -1,34 +1,4 @@
-// Objeto 
-
-const person = {
-    firstName: "Gustavo",
-    lastName: "Araújo",
-    age: 21,
-    hobbies: ["Assistir série na netflix", "Caminhada","Ler"],
-
-    dog:{             //basicamnete é um objeto dog que está dentro do objeto pessoa.
-        name:"Simba",
-        age:4
-    }
-};
-
-// const firstName = person.firstName
-// const lastName = person.lastName
-// const age = person.age
-// const hobbies = person.hobbies
-
-// Vai fazer a mesma coisa que o bloco de cima :  
-const {firstName : primeiroNome, lastName, age, hobbies, dog:{name:dogName}} = person
-
-console.log(primeiroNome)
-console.log(lastName)
-console.log(age)
-console.log(hobbies)
-
-console.log(person.dog.name)
-console.log(dogName)
-
-//Lista com vários objetos
+//JSON
 
 const todos = [
     {
@@ -50,6 +20,8 @@ const todos = [
     }
 ]
 
-const descriptionOfLastTodo = todos[2].description
+const todosJSON = JSON.stringify(todos)  //Transforma uma lista em JSON
 
-console.log(descriptionOfLastTodo)
+const todosList = JSON.parse(todosJSON)  //Transforma JSON em uma lista 
+
+console.log(todosJSON)
