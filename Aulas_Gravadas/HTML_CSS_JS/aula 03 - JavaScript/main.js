@@ -1,52 +1,66 @@
-// ---------- Loops -------------
+// Condicionais 
 
-const cars = ["Ferrari", "Tesla","Mercedes"]
+//DIferença entre 
 
-for(let i = 0;i < cars.length;i++){
-    console.log(cars[i])
+// == (usado para comparação entre duas variáveis, independentemente do tipo de dados da variável.)
+
+//=== (irá verificar o TIPO DE DADOS e comparar dois valores)
+
+const sum = 1 + 2 
+
+if(sum === 2){
+    console.log("Sum is 2!")
+}else if(sum === 3){
+    console.log("Sum is 3!")
+}else{
+    console.log("Sum is not 2!")
 }
 
-console.log("------------------------")
+// && (e)
+// || (ou)
 
-//Outra forma de fazer a mesma coisa , só que mais rápido :
+const sum1 = 2 + 2
+const sum2 = 3 + 3
 
-for(let car of cars){
-    console.log(car)
+if(sum1 === 4 && sum2 === 6){
+    console.log("sum1 is 4 and sum2 is 6!")
 }
 
-console.log("------------------------")
-
-//Outra forma de fazer a mesma coisa :
-
-cars.forEach(function(car,index){
-    console.log("Carro: "+car+"\nPosição: "+index)
-})
-
-console.log("------------------------")
-
-// ------------- WHILE ---------------
-
-let index = 0
-
-while(index < 10){
-    console.log(index)
-    index++              //É a mesma coisa que index = index + 1
+if(sum1 === 4 || sum2 === 6){
+    console.log("sum1 is 4 and sum2 is 6!")
 }
 
-// For In - Usa principalmente para objetos 
+//Vamos definir váriaveis baseado em condições:
 
-const person = {
-    name:"Jane",
-    age:21,
+let number
+
+if(sum === 2){
+    number = 2
+}else{
+    number = 4
 }
 
-for(property in person){
-    console.log(property)  // Vai acessar os nomes das caracteristicas. Exemplo: name,age
-}
+console.log(number)
 
-//OBS : Esse Loop não é tão perfomático.
+// outra forma de fazer 
 
-for(property in person){
-    console.log(person[property])  // Vai acessar o valor armazenado dessas caracteristicas.Exemplo: Jane,21 . 
+result = number === 4 ? 5 : 4
+
+console.log(result)
+
+//Switch 
+
+const car = "Mercedes"
+
+switch(car){
+    case "Mercedes":
+        console.log("Mercedes is beautiful!")
+        break
+    case "Ferrari":
+        console.log("Ferrari is very red!")
+        break
+    case "Tesla":
+        console.log("Tesla is very smart!")
+        break
 }
 
