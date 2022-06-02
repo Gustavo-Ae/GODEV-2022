@@ -1,56 +1,28 @@
-// Objeto
+//             Selecionando elementos do DOM - Serve para pegar os elementos do HTML e trazer para o JavaScript
 
-class Person{
-    constructor(firstName, LastName, age) {
-        this.firstName = firstName
-        this.LastName = LastName
-        this.age = age
-    }
-    getFullName(){ //Isso é um método
-        console.log(`${this.firstName} ${this.LastName}`)
-    }
-    //Podemos criar metodos estaticos(static) para não precisar instanciar a classe , vai ser utilizado quando não precisar utilizar as caracteristicas do objetos :
+// const addUserText = document.getElementById("add-user")  //vai retornar uma referencia do elemento 
 
-    static speak(){
-        console.log("Hello World!")
-    }
+const addUserText = document.querySelector("#add-user") //vai retornar o elemento em si
 
-}
+addUserText.textContent = "Adicionar o Usuário"
 
-const person = new Person("Jane", "Doe", 40) //Aqui estamos instanciando(criando) uma classe e isso é um Objeto.
+console.log(addUserText)
 
-console.log(person)
+const myForm = document.querySelector(".container #my-form")
 
-console.log(person.getFullName())
+console.log(myForm)
 
-Person.speak()  // Utiliza assim para chamar métodos estáticos(static)
+//               Selecionar multiplos elementos : 
 
-//Herança - Objeto
+// const allItems = document.querySelectorAll(".items .item")
 
-class Animal{
-    constructor(name) {
-        this.name = name
-    }
-    speak(){
-        console.log(`${this.name} made some noise!`)
-    }
-}
+// console.log(allItems)             //retorna um NodeList que é basicamente uma lista
+// console.log(allItems[0]) 
 
-class Dog extends Animal{
-    constructor(name){
-        super(name)   //Chama o construtor da classe pai
-    }
+//                HTML Colection - NÃO é recomendado porque não da para utilizar métodos de listas 
 
-    speak(){
-        console.log(`${this.name} barked!`)
-    }
-}
+const allItems = document.getElementsByClassName("item")
 
-// const animal = new Animal("Simba")
-
-const dog = new Dog("Bob")
-
-dog.speak()
-
+console.log(allItems)
 
 
