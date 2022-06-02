@@ -1,28 +1,18 @@
-//             Selecionando elementos do DOM - Serve para pegar os elementos do HTML e trazer para o JavaScript
+// Manipular elementos no DOM 
 
-// const addUserText = document.getElementById("add-user")  //vai retornar uma referencia do elemento 
+const items = document.querySelector(".items")
 
-const addUserText = document.querySelector("#add-user") //vai retornar o elemento em si
+const button = document.querySelector(".btn")
 
-addUserText.textContent = "Adicionar o Usuário"
+button.style.background = "red"
 
-console.log(addUserText)
+// items.remove() //remove todos os elementos 
 
-const myForm = document.querySelector(".container #my-form")
+// items.firstElementChild.remove() // Remove o primeiro elemento da lista.
 
-console.log(myForm)
+// items.lastElementChild.remove() // Remove o último elemento da lista.
 
-//               Selecionar multiplos elementos : 
+// items.children[1].textContent = "Item Dois" 
 
-// const allItems = document.querySelectorAll(".items .item")
-
-// console.log(allItems)             //retorna um NodeList que é basicamente uma lista
-// console.log(allItems[0]) 
-
-//                HTML Colection - NÃO é recomendado porque não da para utilizar métodos de listas 
-
-const allItems = document.getElementsByClassName("item")
-
-console.log(allItems)
-
+// items.lastElementChild.innerHTML = "<h1>Hello World!</h1>"  
 
