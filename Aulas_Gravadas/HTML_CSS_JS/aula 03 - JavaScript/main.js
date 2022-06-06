@@ -1,18 +1,23 @@
-// Manipular elementos no DOM 
+// Eventos 
 
-const items = document.querySelector(".items")
+const submitButton = document.querySelector("#submit-button")
 
-const button = document.querySelector(".btn")
+const nameInput = document.querySelector("#name")
 
-button.style.background = "red"
+const emailInput = document.querySelector("#email")
 
-// items.remove() //remove todos os elementos 
 
-// items.firstElementChild.remove() // Remove o primeiro elemento da lista.
+submitButton.addEventListener("click", function(event){
+    event.preventDefault() //Com essa opção , o formulário não vai fazer o comportamento padrão de enviar os dados para o servidor 
+    
+    const nameValue = nameInput.value
 
-// items.lastElementChild.remove() // Remove o último elemento da lista.
+    console.log(nameValue)
+})
 
-// items.children[1].textContent = "Item Dois" 
+nameInput.addEventListener("change", function(e){
+    console.log(e.target.value)
+})
 
-// items.lastElementChild.innerHTML = "<h1>Hello World!</h1>"  
+
 
