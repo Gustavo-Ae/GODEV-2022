@@ -1,23 +1,41 @@
-// Eventos 
-
-const submitButton = document.querySelector("#submit-button")
+// Validando um formulario 
 
 const nameInput = document.querySelector("#name")
 
 const emailInput = document.querySelector("#email")
 
+const myForm = document.querySelector("#my-form")
 
-submitButton.addEventListener("click", function(event){
-    event.preventDefault() //Com essa opção , o formulário não vai fazer o comportamento padrão de enviar os dados para o servidor 
-    
-    const nameValue = nameInput.value
+const submitButton = document.querySelector("#submit-button")
 
-    console.log(nameValue)
+const errorMessage = document.querySelector(".msg")
+
+const items = document.querySelector(".items")
+
+submitButton.addEventListener("click", function(evento){
+    evento.preventDefault()
+
+    const nameValue = nameInput.value 
+    const emailValue = emailInput.value
+
+    if(nameValue === "" || emailValue === ""){
+        errorMessage.textContent = "Please fill out the fields!"
+        errorMessage.classList = "error" 
+
+        setTimeout(() => {
+            errorMessage.textContent = ""
+            errorMessage.classList = ""
+        },3000)
+
+        return
+    }
+
+    const li = document.createElement("li")
+    li.classList = "item"
+    li.innerHTML = `Nome: ${nameValue}<br/> Email: ${emailValue}`
+
+    items.appendChild(li)
+
+    nameInput.value = ""
+    emailInput.value = ""
 })
-
-nameInput.addEventListener("change", function(e){
-    console.log(e.target.value)
-})
-
-
-
