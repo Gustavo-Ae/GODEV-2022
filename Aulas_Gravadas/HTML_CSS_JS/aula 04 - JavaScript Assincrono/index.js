@@ -1,43 +1,22 @@
 
-// --------------------- Utilizando Promises : 
+// Promise.all - Utilizado quando quiser executar tudo ao mesmo tempo. Lembre-se : Ele vai esperar até a última promise seja resolvida para mostrar o resultado na tela, que nesse caso é o facebook com tempo de 3s.
 
-const loginUser = (email, password) => {
-    return new Promise((resolve, reject) => {
-        const error = false
+const videoYouTube = new Promise(resolve => {  // quando a função não recebe nenhum parametro, você pode fazer dessa forma :
 
-        if(error){
-            reject(new Error("error in login!"))
-        }
+    setTimeout(() => {
+        resolve("videos from YouTube")
+    }, 2000)
+})
 
-        console.log("user logged!")
-        resolve({email})
-    })
-}
-
-const getUserVideos = (email) => {
+const facebook = new Promise((resolve) => {
     
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            console.log("getUserVideos")
-            resolve(["video1", "video2", "video3"])
-        }, 2000)
-    })
-} 
+    setTimeout(() => {
+        resolve("posts from facebook")
+    }, 3000) 
+})
 
-const getVideoDetails = (video) => {
+Promise.all([videoYouTube, facebook]).then(result => {
+    console.log({result})
+})
 
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            console.log("getVideoDetails")
-            resolve({title:"video title"})
-        },2500)
-    })
-
-}
-
-loginUser("fernando@gmail.com", "123456")
-    .then((user) => getUserVideos(user.email))
-    .then((videos) =>  getVideoDetails(videos[0]))
-    .then(videoDetails => console.log({videoDetails}))
-    .catch((error) => console.log({error}))
 
