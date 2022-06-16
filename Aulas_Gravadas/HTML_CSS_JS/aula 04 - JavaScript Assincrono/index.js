@@ -1,49 +1,22 @@
 
-// --------------------- Utilizando Callbacks : 
+// --------------------- Utilizando Promises : 
 
-const loginUser = (email, password, onSuccess, onError) => {
-
-    setTimeout(() => {
-
-        const error = false
+const loginUserPromise = (email, password) => {
+    return new Promise((resolve, reject) => {
+        const error = true
 
         if(error){
-            return onError(new Error("error in login!"))
+            reject(new Error("error in login!"))
         }
 
         console.log("user logged!")
-        onSuccess({email})
-    }, 1500)
-
-    console.log("after setTimeout")
-
-}
-
-const getUserVideos = (email, callback) =>{
-
-    setTimeout(() => {
-        callback(["video1", "video2", "video3"])
-    },2000)
-
-}
-
-const getVideoDetails = (video, callback) => {
-    
-    setTimeout(() => {
-        callback({title:"video title"})
-    }, 2500)
-}
-
-const user = loginUser("fernando@gmail.com", "123456", (user) => {
-    getUserVideos(user.email, (videos) => {
-            console.log({videos})
-        getVideoDetails(videos[0], (videoDetails) => {
-            console.log({videoDetails})
-        })
+        resolve({email})
     })
-}, (error) => {
+}
+
+loginUserPromise("fernando@gmail.com", "123456").then((user) => {
+    console.log({user})
+}).catch((error) => {
     console.log({error})
 })
-
-// console.log({user}) 
 
