@@ -16,11 +16,18 @@
 
 // --------------------- Utilizando Callbacks : 
 
-const loginUser = (email, password, callback) => {
+const loginUser = (email, password, onSuccess, onError) => {
 
     setTimeout(() => {
+
+        const error = true
+
+        if(error){
+            return onError(new Error("error in login!"))
+        }
+
         console.log("user logged!")
-        callback({email}) // também pode ser escrito dessa forma : { email : email }
+        onSuccess({email})
     }, 1500)
 
     console.log("after setTimeout")
@@ -29,6 +36,8 @@ const loginUser = (email, password, callback) => {
 
 const user = loginUser("fernando@gmail.com", "123456", (user) => {
     console.log({user})
+}, (error) => {
+    console.log({error})
 })
 
 // console.log({user}) 
