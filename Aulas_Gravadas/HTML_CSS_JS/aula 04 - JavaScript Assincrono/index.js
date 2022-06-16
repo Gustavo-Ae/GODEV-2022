@@ -1,18 +1,3 @@
-// const loginUser = (email, password) => {
-
-//     setTimeout(() => {
-//         console.log("user logged!")
-//         return { email } // também pode ser escrito dessa forma : { email : email }
-//     }, 1500)
-
-//     console.log("after setTimeout")
-
-// }
-
-// const user = loginUser("fernando@gmail.com", "123456")
-
-// console.log({user}) 
-
 
 // --------------------- Utilizando Callbacks : 
 
@@ -20,7 +5,7 @@ const loginUser = (email, password, onSuccess, onError) => {
 
     setTimeout(() => {
 
-        const error = true
+        const error = false
 
         if(error){
             return onError(new Error("error in login!"))
@@ -34,8 +19,28 @@ const loginUser = (email, password, onSuccess, onError) => {
 
 }
 
+const getUserVideos = (email, callback) =>{
+
+    setTimeout(() => {
+        callback(["video1", "video2", "video3"])
+    },2000)
+
+}
+
+const getVideoDetails = (video, callback) => {
+    
+    setTimeout(() => {
+        callback({title:"video title"})
+    }, 2500)
+}
+
 const user = loginUser("fernando@gmail.com", "123456", (user) => {
-    console.log({user})
+    getUserVideos(user.email, (videos) => {
+            console.log({videos})
+        getVideoDetails(videos[0], (videoDetails) => {
+            console.log({videoDetails})
+        })
+    })
 }, (error) => {
     console.log({error})
 })
