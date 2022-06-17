@@ -1,0 +1,22 @@
+{
+  "name": "node",
+  "version": "1.0.0",
+  "description": "Curso de Node.js",
+  "main": "index.js",
+  "scripts": {
+    "start:dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gustavo-Ae/GODEV-2022.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Gustavo-Ae/GODEV-2022/issues"
+  },
+  "homepage": "https://github.com/Gustavo-Ae/GODEV-2022#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.16"
+  }
+}

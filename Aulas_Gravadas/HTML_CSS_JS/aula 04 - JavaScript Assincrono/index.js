@@ -1,8 +1,6 @@
 
 // --------------------- Utilizando Promises com Async/Await  : 
 
-//
-
 const loginUser = (email, password) => {
     return new Promise((resolve, reject) => {
         const error = false
