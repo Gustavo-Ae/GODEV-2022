@@ -8,12 +8,7 @@ app.use(express.json())
 
 const port = 8080
 
-app.get("/home", (req, res) => {
-    res.contentType("application/html");
-    res.status(200).send("<h1>Hello World</h1>");
-});
-
-app.get("/users", async (req, res) => {
+app.get("/users", async (req, res) => {  //Pegar os usuários
     try{
         const users = await UserModel.find({})
 
@@ -24,7 +19,19 @@ app.get("/users", async (req, res) => {
     }
 })
 
-app.post("/users", async (req, res) => {  //criar usuário
+app.get("/users/:id", async(req, res) => { 
+    try{
+        const id = req.params.id
+
+        const user = await UserModel.findById(id)
+
+        return res.status(200).json(user)
+    }catch(error){
+        return res.status(500).send(error.message)
+    }
+})  
+
+app.post("/users", async (req, res) => {  //Criar os usuário
     try{
         const user = await UserModel.create(req.body)
 
