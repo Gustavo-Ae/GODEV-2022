@@ -42,5 +42,17 @@ app.post("/users", async (req, res) => {  //Criar os usuário
 
 })
 
+app.patch("/users/:id", async(req,res) => {
+    try{
+        const id = req.params.id
+
+        const user = await UserModel.findByIdAndUpdate(id, req.body, {new : true})  // findByIdAndUpdate() não retorna o registro atualizado então utiliza o {new : true} --> para retornar com os registros atualizados.
+
+        res.status(200).json(user)
+    }catch(error){  
+        res.status(500).send(error.message)
+    }
+})
+
 app.listen(port, () => console.log(`Rodando com Express na porta ${port}!`))
 
