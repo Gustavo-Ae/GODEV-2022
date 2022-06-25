@@ -23,4 +23,3 @@ app.delete("/", (req, res) => {
 app.listen(port, () => {
     console.log(`Servidor escutando na porta ${port}`)
 })
-
