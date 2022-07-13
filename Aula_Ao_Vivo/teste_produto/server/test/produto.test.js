@@ -12,6 +12,6 @@ test ("Deve obter os produtos do banco de dados", async function(){
 
     const resposta = response.data
 
-    expect(resposta).toBe("Methodo GET = route: /produtos")
+    expect(resposta).toHaveLength(1)
 
 })
