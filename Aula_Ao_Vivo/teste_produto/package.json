@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "jest --env node",
-    "start": "nodemon server/test/server.js"
+    "start": "nodemon server/server.js"
   },
   "keywords": [],
   "author": "",
