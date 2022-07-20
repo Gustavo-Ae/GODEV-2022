@@ -54,7 +54,7 @@ test ("O preço do terceiro produto deve ser R$2.99", async function(){
 test.only ('Deve recuperar um registro no banco de dados a partir de um id', async function(){
     const response = await axios(
         {
-            url: 'http://localhost:3000/produtos/5',
+            url: 'http://localhost:3000/produtos/1',
             method: 'get'
         }
     );
@@ -64,10 +64,10 @@ test.only ('Deve recuperar um registro no banco de dados a partir de um id', asy
     const preco = resposta[0].preco;
     const tipo_produto = resposta[0].tipo_produto;
 
-    expect(id).toBe(5);
-    expect(descricao).toBe('Descrição produto 005');
-    expect(preco).toBe('R$ 5,99');
-    expect(tipo_produto).toBe('Tipo de produto 005');
+    expect(id).toBe(1);
+    expect(descricao).toBe('Descricao Produto 001');
+    expect(preco).toBe('R$ 1,99');
+    expect(tipo_produto).toBe('Tipo de produto 001');
     
 });
 
