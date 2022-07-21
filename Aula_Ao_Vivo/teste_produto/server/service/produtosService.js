@@ -7,3 +7,7 @@ exports.getProdutos = function(){
 exports.selectProdutoById = function (id) {
     return produtosData.selectProdutoById(id);
 }
+
+exports.insertNovoProduto = function(novoProduto){
+    return produtosData.insertNovoProduto(novoProduto)
+}

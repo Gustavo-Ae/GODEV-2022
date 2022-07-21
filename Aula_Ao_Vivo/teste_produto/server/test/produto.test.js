@@ -27,7 +27,7 @@ test ("Deve obter os produtos do banco de dados", async function(){
 
     const resposta = response.data;
 
-    expect(resposta).toHaveLength(3)  
+    expect(resposta).toHaveLength(2)  
 
     console.log(resposta)
 
@@ -42,7 +42,7 @@ test ("O preço do terceiro produto deve ser R$2.99", async function(){
         }
     )
 
-    const preco = response.data[2].preco;
+    const preco = response.data[1].preco;
 
     expect(preco).toBe("R$ 2,99")  
 
@@ -51,7 +51,7 @@ test ("O preço do terceiro produto deve ser R$2.99", async function(){
 });
 
 
-test.only ('Deve recuperar um registro no banco de dados a partir de um id', async function(){
+test ('Deve recuperar um registro no banco de dados a partir de um id', async function(){
     const response = await axios(
         {
             url: 'http://localhost:3000/produtos/1',
@@ -71,7 +71,34 @@ test.only ('Deve recuperar um registro no banco de dados a partir de um id', asy
     
 });
 
-test ('Deve inserir um registro no banco de dados', async function(){});
+test('Deve inserir um registro no banco de dados', async function(){
+
+    const novoProduto = {
+        "descricao": "Descricao Produto 003",
+        "preco": "R$ 3,99",
+        "tipo_produto": "Tipo de produto 003"
+    }
+
+    const response = await axios(
+        {
+            url: 'http://localhost:3000/produtos',
+            method: 'post',
+            data: novoProduto
+        }
+    );
+
+    const resposta = response.data;
+    const id = resposta.id;
+    const descricao = resposta.descricao;
+    const preco = resposta.preco;
+    const tipo_produto = resposta.tipo_produto;
+
+    expect(id).toBe(3);
+    expect(descricao).toBe('Descricao Produto 003');
+    expect(preco).toBe('R$ 3,99');
+    expect(tipo_produto).toBe('Tipo de produto 003');
+
+});
 
 test ('Deve alterar um registro no banco de dados a partir de um id', async function(){});
 

@@ -16,7 +16,9 @@ router.get('/produtos/:id', async function(req, res){
 });
 
 router.post('/produtos', async function(req, res){
-  res.send("Methodo POST");
+    const dados = req.body
+    let produto = await produtoService.insertNovoProduto(dados)
+    res.json(produto)
 });
 
 router.put('/produtos/:id', async function(req, res){
