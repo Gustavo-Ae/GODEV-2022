@@ -12,6 +12,7 @@ exports.insertNovoProduto = function (produto) {
     return database.one("INSERT INTO produto VALUES (DEFAULT, $1, $2, $3) returning *",[produto.descricao, produto.preco, produto.tipo_produto])
 }
 
-exports.update = function (id) {
-   
+exports.updateProduto = function (id, produto) {
+    return database.one("UPDATE produto SET descricao = $1, preco = $2, tipo_produto = $3 WHERE id = $4 returning *",[produto.descricao, produto.preco, produto.tipo_produto, id])
+
 }

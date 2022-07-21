@@ -11,3 +11,7 @@ exports.selectProdutoById = function (id) {
 exports.insertNovoProduto = function(novoProduto){
     return produtosData.insertNovoProduto(novoProduto)
 }
+
+exports.updateProduto = function(id, produto){
+    return produtosData.updateProduto(id, produto)
+}

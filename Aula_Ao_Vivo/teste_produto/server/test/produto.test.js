@@ -100,6 +100,35 @@ test('Deve inserir um registro no banco de dados', async function(){
 
 });
 
-test ('Deve alterar um registro no banco de dados a partir de um id', async function(){});
+test.only ('Deve alterar um registro no banco de dados a partir de um id', async function(){
+
+    const updateProduto = {
+        "id": "3",
+        "descricao": "Nova Descricao Produto 003",
+        "preco": "R$ 3,33",
+        "tipo_produto": "Novo Tipo de produto 003"
+    }
+
+
+    const response = await axios(
+        {
+            url: `http://localhost:3000/produtos/${updateProduto.id}`,
+            method: 'put',
+            data: updateProduto
+        }
+    );
+
+    const resposta = response.data;
+    const id = resposta.id;
+    const descricao = resposta.descricao;
+    const preco = resposta.preco;
+    const tipo_produto = resposta.tipo_produto;
+
+    expect(id).toBe(3);
+    expect(descricao).toBe('Nova Descricao Produto 003');
+    expect(preco).toBe('R$ 3,33');
+    expect(tipo_produto).toBe('Novo Tipo de produto 003');
+
+});
 
 test ('Deve apagar um registro no banco de dados a partir de um id', async function(){});
