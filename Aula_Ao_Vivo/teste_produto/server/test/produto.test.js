@@ -100,7 +100,7 @@ test('Deve inserir um registro no banco de dados', async function(){
 
 });
 
-test.only ('Deve alterar um registro no banco de dados a partir de um id', async function(){
+test ('Deve alterar um registro no banco de dados a partir de um id', async function(){
 
     const updateProduto = {
         "id": "3",
@@ -131,4 +131,14 @@ test.only ('Deve alterar um registro no banco de dados a partir de um id', async
 
 });
 
-test ('Deve apagar um registro no banco de dados a partir de um id', async function(){});
+test.only ('Deve apagar um registro no banco de dados a partir de um id', async function(){
+    const idDelete = 1
+    const response = await axios(
+        {
+            url: `http://localhost:3000/produtos/${idDelete}`,
+            method: 'delete'
+        }
+    );
+
+    expect(response.data).not.toBeNull()
+});
