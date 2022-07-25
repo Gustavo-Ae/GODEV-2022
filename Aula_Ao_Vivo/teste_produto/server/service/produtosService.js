@@ -13,7 +13,7 @@ exports.insertNovoProduto = function(novoProduto){
 }
 
 exports.updateProduto = function(id, produto){
-    return produtosData.updateProduto(id, produto)
+    produtosData.updateProduto(id, produto)
 }
 
 exports.deleteProduto = function(id){

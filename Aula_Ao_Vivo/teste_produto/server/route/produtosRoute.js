@@ -22,10 +22,10 @@ router.post('/produtos', async function(req, res){
 });
 
 router.put('/produtos/:id', async function(req, res){
-    const dados = req.body
+    const produto = req.body
     const id = req.params.id
-    let produto = await produtoService.updateProduto(id, dados)
-    res.json(produto)
+    await produtoService.updateProduto(id, produto)
+    res.status(204).end()
 });
 
 router.delete('/produtos/:id', async function(req, res){

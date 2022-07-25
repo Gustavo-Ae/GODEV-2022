@@ -37,6 +37,26 @@ test("Deve obter o HTTP status 201", async () => {
     expect(httpStatus).toBe(201)
 })
 
+test.only("Deve obter o HTTP status 204", async () => {
+    const updateProduto = {
+        id: 2,
+        descricao: "Nova Descrição Produto 002",
+        preco: "R$ 2,00",
+        tipo_produto: "Novo Tipo de produto 002"
+    }
+
+    const response = await axios(
+        {
+            url: `http://localhost:3000/produtos/${updateProduto.id}`,
+            method: "put",
+            data: updateProduto
+        }
+    )
+
+    const httpStatus = response.status
+    expect(httpStatus).toBe(204)
+})
+
 test ("Deve obter os produtos do banco de dados", async function(){
     const response = await axios(
         {
