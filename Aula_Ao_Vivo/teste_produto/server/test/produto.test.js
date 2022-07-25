@@ -17,6 +17,26 @@ test ("Deve obter o status 200", async function(){
 
 });
 
+test("Deve obter o HTTP status 201", async () => {
+    const novoProduto = {
+        descricao : "Descrição Produto 003",
+        preco : "R$ 3,99",
+        tipo_produto: "Tipo de produto 003"
+    }
+
+    const response = await axios(
+
+        {
+            url: "http://localhost:3000/produtos",
+            method: "post",
+            data: novoProduto
+        }
+    )
+
+    const httpStatus = response.status
+    expect(httpStatus).toBe(201)
+})
+
 test ("Deve obter os produtos do banco de dados", async function(){
     const response = await axios(
         {
@@ -131,7 +151,7 @@ test ('Deve alterar um registro no banco de dados a partir de um id', async func
 
 });
 
-test.only ('Deve apagar um registro no banco de dados a partir de um id', async function(){
+test ('Deve apagar um registro no banco de dados a partir de um id', async function(){
     const idDelete = 1
     const response = await axios(
         {

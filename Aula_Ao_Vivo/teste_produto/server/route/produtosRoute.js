@@ -18,7 +18,7 @@ router.get('/produtos/:id', async function(req, res){
 router.post('/produtos', async function(req, res){
     const dados = req.body
     let produto = await produtoService.insertNovoProduto(dados)
-    res.json(produto)
+    res.status(201).json(produto)
 });
 
 router.put('/produtos/:id', async function(req, res){
