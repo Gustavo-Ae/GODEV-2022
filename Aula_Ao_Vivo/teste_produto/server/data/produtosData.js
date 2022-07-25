@@ -18,5 +18,5 @@ exports.updateProduto = function (id, produto) {
 }
 
 exports.deleteProduto = function (id) {
-    return database.oneOrNone("DELETE FROM produto WHERE id = $1 returning *", [id])
+    database.none("DELETE FROM produto WHERE id = $1", [id])
 }

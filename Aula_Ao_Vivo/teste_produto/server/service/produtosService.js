@@ -17,5 +17,5 @@ exports.updateProduto = function(id, produto){
 }
 
 exports.deleteProduto = function(id){
-    return produtosData.deleteProduto(id)
+    produtosData.deleteProduto(id)
 }
