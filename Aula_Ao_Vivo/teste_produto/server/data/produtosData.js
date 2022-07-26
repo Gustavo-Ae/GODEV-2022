@@ -9,7 +9,7 @@ exports.selectProdutoById = function (id) {
 }
 
 exports.insertNovoProduto = function (produto) {
-    return database.one("INSERT INTO produto VALUES (DEFAULT, $1, $2, $3) returning *",[produto.descricao, produto.preco, produto.tipo_produto])
+    database.none("INSERT INTO produto VALUES (DEFAULT, $1, $2, $3)",[produto.descricao, produto.preco, produto.tipo_produto])
 }
 
 exports.updateProduto = function (id, produto) {

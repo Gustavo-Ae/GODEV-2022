@@ -11,7 +11,7 @@ router.get("/produtos", async function(req, res){
 
 router.get('/produtos/:id', async function(req, res){
     const id = req.params.id;
-    
+
     try {
         let produtosJSON = await produtoService.selectProdutoById(id);
         res.json(produtosJSON);
@@ -21,9 +21,15 @@ router.get('/produtos/:id', async function(req, res){
 });
 
 router.post('/produtos', async function(req, res){
-    const dados = req.body
-    let produto = await produtoService.insertNovoProduto(dados)
-    res.status(201).json(produto)
+
+    const dados = req.body;
+    
+    try {
+        await produtoService.insertNovoProduto(dados);
+        res.status(201).send("Cadastro efetuado com sucesso!!!");
+    } catch(e){
+        res.status(422).send(e.message);
+    }
 });
 
 router.put('/produtos/:id', async function(req, res){

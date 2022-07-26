@@ -13,7 +13,17 @@ exports.selectProdutoById = async function (id) {
 }
 
 exports.insertNovoProduto = function(novoProduto){
-    return produtosData.insertNovoProduto(novoProduto)
+
+    if(novoProduto.preco == undefined) {
+        throw new Error('O campo preço e obrigatório!!!');
+    }
+    if(typeof(novoProduto.preco) !== Number){
+        throw new Error('O campo preço possui valores inválidos!!!');
+    }
+    if(Number(novoProduto.preco) < 0.00){
+        throw new Error('O campo preço deve conter valores maiores que zero!!');
+    }
+    produtosData.insertNovoProduto(novoProduto);
 }
 
 exports.updateProduto = function(id, produto){
