@@ -1,6 +1,6 @@
 const { default: axios } = require("axios")
 
-test ("Deve obter o status 200", async function(){
+test.only ("Deve obter http status 200 - select : GET", async function(){
     const response = await axios(
         {
             url:"http://localhost:3000/produtos",
@@ -8,13 +8,8 @@ test ("Deve obter o status 200", async function(){
         }
     )
 
-
-    const status = response.status;
-
-    expect(status).toEqual(200)
-
-    console.log(status)
-
+    const httpStatus = response.status;
+    expect(httpStatus).toBe(200)
 });
 
 test("Deve obter o HTTP status 201", async () => {
@@ -57,7 +52,7 @@ test("Deve obter o HTTP status 204", async () => {
     expect(httpStatus).toBe(204)
 })
 
-test.only("Deve obter o HTTP status 204", async () => {
+test("Deve obter o HTTP status 204", async () => {
     const idDelete = 1
 
     const response = await axios(
