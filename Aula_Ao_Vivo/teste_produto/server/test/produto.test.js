@@ -12,7 +12,7 @@ test ("Deve obter http status 200 - select : GET", async function(){
     expect(httpStatus).toBe(200)
 });
 
-test.only('Deve obter http status 200 - select by id: GET', async function() {
+test('Deve obter http status 200 - select by id: GET', async function() {
     const response = await axios(
         {
             url: 'http://localhost:3000/produtos/1',
@@ -22,6 +22,19 @@ test.only('Deve obter http status 200 - select by id: GET', async function() {
    const httpStatus = response.status;
    expect(httpStatus).toBe(200)
 });
+
+test.only ('Deve obter http status 404 - select by id: GET', async function() {
+    const response = await axios(
+        {
+            url: 'http://localhost:3000/produtos/10000',
+            method: 'get',
+            validateStatus: false
+        }
+    );
+   const httpStatus = response.status;
+   expect(httpStatus).toBe(404)
+});
+
 
 test("Deve obter o HTTP status 201", async () => {
     const novoProduto = {
