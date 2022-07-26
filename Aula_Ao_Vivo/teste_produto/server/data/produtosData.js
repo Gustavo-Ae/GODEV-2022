@@ -5,7 +5,7 @@ exports.getProdutos = () => {
 }
 
 exports.selectProdutoById = function (id) {
-    return database.query("SELECT * FROM produto WHERE id = $1", [id]);
+    return database.oneOrNone("SELECT * FROM produto WHERE id = $1", [id]);
 }
 
 exports.insertNovoProduto = function (produto) {

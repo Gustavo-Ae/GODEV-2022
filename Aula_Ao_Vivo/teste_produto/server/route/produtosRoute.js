@@ -11,8 +11,13 @@ router.get("/produtos", async function(req, res){
 
 router.get('/produtos/:id', async function(req, res){
     const id = req.params.id;
-    let produtosJSON = await produtoService.selectProdutoById(id);
-    res.json(produtosJSON);
+    
+    try {
+        let produtosJSON = await produtoService.selectProdutoById(id);
+        res.json(produtosJSON);
+    } catch(e){
+        res.status(404).send(e.message);
+    }
 });
 
 router.post('/produtos', async function(req, res){

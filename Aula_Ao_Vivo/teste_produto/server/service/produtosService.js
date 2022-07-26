@@ -4,8 +4,12 @@ exports.getProdutos = function(){
     return produtosData.getProdutos()
 }
 
-exports.selectProdutoById = function (id) {
-    return produtosData.selectProdutoById(id);
+exports.selectProdutoById = async function (id) {
+    const produto = await produtosData.selectProdutoById(id);
+    if (!produto){
+        throw new Error('Produto não encontrado!');
+    }
+    return produto;
 }
 
 exports.insertNovoProduto = function(novoProduto){
